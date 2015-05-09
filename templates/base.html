@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>The Wiki Hub</title>
+
+        <link type="text/css" rel="stylesheet" href="/css/main.css" />
+		<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+        <script src="/js/jquery-1.11.1.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+	</head>
+	<body class>
+        <div class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/home">Wiki Hub</a>
+                </div>
+                <div class="navbar-collapse collapse navbar-inverse-collapse">
+                    <form class="navbar-form navbar-left">
+                        <input type="text" class="form-control col-lg-8" placeholder="Search">
+                    </form>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            {% if user %}
+                                <a href="/edit/newpost">New Post</a>
+                            {% else %}
+                                <a href="/signup">Signup</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if user %}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.username }} <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a href="/login">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+		<div class="container">
+			{% block content %}
+				
+			{% endblock %}
+		</div>
+
+	</body>
+</html>

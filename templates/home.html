@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for post in top_posts %}
+        {{ post.render() | safe }}
+    {% endfor %}
+
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Made by <a href="http://michaelmao.ca">Michael Mao</a></p>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

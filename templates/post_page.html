@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>{{ post.title }}</h1>
+        <div class="lead">
+            <div class="pull-left">
+                {{ post.date_created.strftime("%B %d, %Y") }}
+            </div>
+            <div class="pull-right">
+                {% if user %}
+                    {% if post.version == 1 %}
+                    <a href="/edit{{ path }}">edit</a>
+                    {% endif %}
+                    |
+                    <a href="/history{{ path }}">history</a>
+                {% endif %}
+            </div>
+        </div>
+        <br/>
+    </div>
+    <div>
+        {{ post.content | safe }}
+    </div>
+
+{% endblock %}
+
+
+	

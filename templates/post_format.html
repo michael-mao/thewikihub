@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="/{{ post.title | replace(" ", "_") }}?id={{ post.key().id() }}">{{ post.title }}</a>
+        <span class="pull-right">{{ post.date_created.strftime("%b %d, %Y") }}</span>
+    </div>
+    <div class="panel-body">
+        {{ post.render_text | safe }}
+    </div>
+</div>

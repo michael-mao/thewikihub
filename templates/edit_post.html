@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if error_edit %}
+        <div class="alert alert-dismissable alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ error_edit }}</strong>
+        </div>
+    {% endif %}
+
+    <form method="post">
+        <h2>Post an Article</h2>
+        <div class="form-group">
+            <label class="control-label" for="edit-post-title">Title</label>
+            <input class="form-control input-lg" type="text" id="edit-post-title" name="post_title" value="{{ post.title }}"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="edit-post-content">Body</label>
+            <textarea class="form-control" rows="15" id="edit-post-content" name="post_content">{{ post.content }}</textarea>
+            <span class="help-block">Accepts html tags for rich text editing.</span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Publish</button>
+            <button type="reset" class="btn btn-default">Clear</button>
+        </div>
+    </form>
+
+{% endblock %}
